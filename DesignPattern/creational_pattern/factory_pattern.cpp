@@ -6,8 +6,8 @@
 class FactoryInterface
 {
 public:
-	virtual void factoryFunction1() = 0;
-	virtual void factoryFunction2() = 0;
+	virtual void factory_function1() = 0;
+	virtual void factory_function2() = 0;
 
 	virtual ~FactoryInterface() {}
 };
@@ -21,12 +21,12 @@ public:
 		std::cout << "Constructing FactoryImplementation1..." << std::endl;
 	}
 
-	void factoryFunction1() {
-		std::cout << "From FactoryImplementation1..." << std::endl;
+    void factory_function1() {
+		std::cout << "From FactoryImplementation1::factory_function1()" << std::endl;
 	}
 
-	void factoryFunction2() {
-		std::cout << "From FactoryImplementation1..." << std::endl;
+    void factory_function2() {
+		std::cout << "From FactoryImplementation1::factory_function2()" << std::endl;
 	}
 
 	~FactoryImplementation1(){
@@ -41,12 +41,12 @@ public:
 		std::cout << "Constructing FactoryImplementation2..." << std::endl;
 	}
 
-	void factoryFunction1() {
-		std::cout << "From FactoryImplementation2..." << std::endl;
+    void factory_function1() {
+		std::cout << "From FactoryImplementation2::factory_function1()" << std::endl;
 	}
 
-	void factoryFunction2() {
-		std::cout << "From FactoryImplementation2..." << std::endl;
+    void factory_function2() {
+		std::cout << "From FactoryImplementation2::factory_function2()" << std::endl;
 	}
 
 	~FactoryImplementation2(){
@@ -84,17 +84,17 @@ public:
 
 // ----------------- test factory pattern -----------
 
-void testFactoryPattern()
+void test_factory_pattern()
 {
 	FactoryInterface *factoryInterface1 = FactoryProvider::getFactoryObject(FactoryType1);
-	factoryInterface1->factoryFunction1();
-	factoryInterface1->factoryFunction2();
+    factoryInterface1->factory_function1();
+    factoryInterface1->factory_function2();
 	delete factoryInterface1;
 
 	std::cout << "----------------------------" << std::endl;
 
 	FactoryInterface *factoryInterface2 = FactoryProvider::getFactoryObject(FactoryType2);
-	factoryInterface2->factoryFunction1();
-	factoryInterface2->factoryFunction2();
+    factoryInterface2->factory_function1();
+    factoryInterface2->factory_function2();
 	delete factoryInterface2;
 }

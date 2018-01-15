@@ -27,9 +27,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DesignPattern.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="creational_pattern\factory_pattern.cpp">
       <Filter>Source Files\creational_pattern</Filter>
     </ClCompile>
@@ -44,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="structural_pattern\adapter_pattern.cpp">
       <Filter>Source Files\structural_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="design_pattern.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
