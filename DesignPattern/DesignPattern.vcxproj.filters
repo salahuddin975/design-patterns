@@ -45,5 +45,14 @@
     <ClCompile Include="design_pattern.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="abstract_factroy_pattern.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="builder_pattern.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="prototype_pattern.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

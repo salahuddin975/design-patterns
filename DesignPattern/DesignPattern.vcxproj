@@ -51,7 +51,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -80,11 +80,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="abstract_factroy_pattern.cpp" />
     <ClCompile Include="behavioral_pattern\chain_of_responsibility_pattern.cpp" />
     <ClCompile Include="behavioral_pattern\command_pattern.cpp" />
+    <ClCompile Include="builder_pattern.cpp" />
     <ClCompile Include="creational_pattern\factory_pattern.cpp" />
     <ClCompile Include="creational_pattern\singleton.cpp" />
     <ClCompile Include="design_pattern.cpp" />
+    <ClCompile Include="prototype_pattern.cpp" />
     <ClCompile Include="structural_pattern\adapter_pattern.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
