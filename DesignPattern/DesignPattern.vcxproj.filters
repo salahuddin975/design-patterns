@@ -42,17 +42,11 @@
     <ClCompile Include="structural_pattern\adapter_pattern.cpp">
       <Filter>Source Files\structural_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="design_pattern.cpp">
+    <ClCompile Include="creational_pattern\prototype_pattern.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="abstract_factroy_pattern.cpp">
-      <Filter>Source Files\creational_pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="builder_pattern.cpp">
-      <Filter>Source Files\creational_pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="prototype_pattern.cpp">
-      <Filter>Source Files\creational_pattern</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
