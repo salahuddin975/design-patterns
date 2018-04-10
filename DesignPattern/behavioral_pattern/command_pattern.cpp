@@ -98,7 +98,7 @@ private:
 
 
 // client
-int command_client()
+void command_pattern()
 {
 	RemoteControl remote_control;
 
@@ -123,7 +123,5 @@ int command_client()
 
 	remote_control.set_command(&fan_off);
 	remote_control.button_pressed();
-
-	return 0;
 }
 

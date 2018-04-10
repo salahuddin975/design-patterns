@@ -47,7 +47,7 @@ public:
 SingleTon *SingleTon::instance = nullptr;
 
 
-void test_singleton()
+void singleton_pattern()
 {
 	SingleTon *ins = SingleTon::get_instance();
 	ins->print_test();

@@ -84,7 +84,7 @@ public:
 
 // ----------------- test factory pattern -----------
 
-void test_factory_pattern()
+void factory_pattern()
 {
 	FactoryInterface *factoryInterface1 = FactoryProvider::getFactoryObject(FactoryType1);
     factoryInterface1->factory_function1();

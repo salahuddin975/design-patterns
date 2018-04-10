@@ -95,7 +95,7 @@ Prototype* ObjectFactory::type1value2 = 0;
 Prototype* ObjectFactory::type2value1 = 0;
 Prototype* ObjectFactory::type2value2 = 0;
 
-int prototype_pattern()
+void prototype_pattern()
 {
     ObjectFactory::initialize();
     Prototype* object;
@@ -112,7 +112,4 @@ int prototype_pattern()
 
     object = ObjectFactory::getType2Value2();
     std::cout << object->getType() << ": " << object->getValue() << std::endl;
-
-
-    return 0;
 }
