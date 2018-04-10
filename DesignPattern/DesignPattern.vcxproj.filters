@@ -45,7 +45,16 @@
     <ClCompile Include="creational_pattern\prototype_pattern.cpp">
       <Filter>Source Files\creational_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="structural_pattern\composite_pattern.cpp">
+      <Filter>Source Files\structural_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="creational_pattern\builder_pattern.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="creational_pattern\prototype_pattern_bak.cpp">
+      <Filter>Source Files\creational_pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

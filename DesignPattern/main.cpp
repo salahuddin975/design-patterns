@@ -9,6 +9,7 @@ void builder_pattern();
 void prototype_pattern();
 
 void adapter_pattern();
+void composite_pattern();
 
 void command_pattern();
 
@@ -53,6 +54,11 @@ int main()
             std::cout << "\n------------------ Adapter Pattern ------------------------\n" << std::endl;
             adapter_pattern();
             break;
+
+		case 9:
+			std::cout << "\n------------------ Composite Pattern ------------------------\n" << std::endl;
+			composite_pattern();
+			break;
 
 		case 15: 
 			std::cout << "\n------------------ Command Pattern ------------------------\n" << std::endl;
