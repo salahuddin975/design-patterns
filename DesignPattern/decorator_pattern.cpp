@@ -55,19 +55,19 @@ public:
 
 void decorator_pattern()
 {
-	Circle *circle = new Circle();
+	Shape *circle = new Circle();
 	std::cout << "\n------- Draw Circle without border --------" << std::endl;
 	circle->draw();
 
-	BorderWithShapeDecorator *circleWithBorder = new BorderWithShapeDecorator(circle);
+	Shape *circleWithBorder = new BorderWithShapeDecorator(circle);
 	std::cout << "\n------- Draw Circle with border --------" << std::endl;
 	circleWithBorder->draw();
 
-	Rectangle *rectangle = new Rectangle();
+	Shape *rectangle = new Rectangle();
 	std::cout << "\n------- Draw rectangle without border --------" << std::endl;
 	rectangle->draw();
 
-	BorderWithShapeDecorator *rectangleWithBorder = new BorderWithShapeDecorator(rectangle);
+	Shape *rectangleWithBorder = new BorderWithShapeDecorator(rectangle);
 	std::cout << "\n------- Draw rectangle with border --------" << std::endl;
 	rectangleWithBorder->draw();
 
