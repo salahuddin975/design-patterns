@@ -54,8 +54,9 @@
     <ClCompile Include="creational_pattern\prototype_pattern_bak.cpp">
       <Filter>Source Files\creational_pattern</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="decorator_pattern.cpp">
+      <Filter>Source Files\structural_pattern</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
 </Project>

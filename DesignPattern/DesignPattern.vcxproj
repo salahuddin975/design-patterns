@@ -87,6 +87,7 @@
     <ClCompile Include="creational_pattern\prototype_pattern.cpp" />
     <ClCompile Include="creational_pattern\prototype_pattern_bak.cpp" />
     <ClCompile Include="creational_pattern\singleton.cpp" />
+    <ClCompile Include="decorator_pattern.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="structural_pattern\adapter_pattern.cpp" />
     <ClCompile Include="structural_pattern\composite_pattern.cpp" />
