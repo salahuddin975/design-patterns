@@ -1,61 +1,32 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 
-using namespace std;
-
-class SingleTon
-{
+class Singleton{
 private:
-	static SingleTon *instance;
-	SingleTon(){
-		std::cout << "Constructing..." << std::endl;
-	}
+  static Singleton* instance;   // private static pointer to hold the singleton object
+  Singleton() {}                // private constructor to prevent instantiation from outside
+
 public:
-	static SingleTon* get_instance(){
-		if (instance == nullptr){
-			instance = new SingleTon();
-		}
-		return instance;
-	}
-
-	static void delete_instance(){
-		if (instance != nullptr){
-			delete instance;
-		}
-	}
-
-	void print_test(){
-		if (instance == nullptr){
-			return ;
-		}
-		std::cout << "Print this!" << std::endl;
-	}
-
-	~SingleTon(){
-		std::cout << "Destructing..." << std::endl;
-		instance = nullptr;
-	}
+  static Singleton* getInstance() {    // public static method to access the single instance
+    if (instance == nullptr){
+      instance = new Singleton();
+    }
+    return instance;
+  }
+  void print() {
+    std::cout << "singleton print method" << std::endl;
+  }
 };
 
-SingleTon *SingleTon::instance = nullptr;
 
-void singleton_pattern()
-{
-	SingleTon *ins = SingleTon::get_instance();
-	ins->print_test();
+Singleton* Singleton::instance = nullptr;      // initialize the static pointer to nullptr;
 
-	SingleTon::delete_instance();
-	SingleTon::delete_instance();
-	SingleTon::delete_instance();
+int main() {
+  Singleton* s1 = Singleton::getInstance();
+  Singleton* s2 = Singleton::getInstance();
 
-	if (ins != nullptr){
-		ins->print_test();
-	}
-	SingleTon *ins1 = SingleTon::get_instance();
-	ins1->print_test();
-	SingleTon *ins2 = SingleTon::get_instance();
-	ins2->print_test();
-	SingleTon::delete_instance();
-	ins2->print_test();
+  s1->print();
+  s2->print();
+  
+  std::cout << (s1 == s2) << std::endl;
+  return 0;
 }
