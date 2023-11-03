@@ -30,3 +30,10 @@ int main() {
   std::cout << (s1 == s2) << std::endl;
   return 0;
 }
+
+/*
+- The Singleton class contains a private static pointer instance to hold the single instance of the class.
+- The constructor is made private to prevent external instantiation of the class.
+- The getInstance static method is used to access the single instance. It checks whether instance is already created; if not, it creates a new instance, and if it already exists, it returns the existing instance.
+- In the main function, you create two instances, s1 and s2, using the getInstance method. They both refer to the same underlying object, as shown by the output comparison.
+*/
