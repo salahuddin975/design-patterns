@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 // --------------------- declare interface --------------------
@@ -84,7 +83,7 @@ public:
 
 // ----------------- test factory pattern -----------
 
-void factory_pattern()
+int main()
 {
 	FactoryInterface *factoryInterface1 = FactoryProvider::getFactoryObject(FactoryType1);
     factoryInterface1->factory_function1();
@@ -97,4 +96,6 @@ void factory_pattern()
     factoryInterface2->factory_function1();
     factoryInterface2->factory_function2();
 	delete factoryInterface2;
+
+	return 0;
 }
