@@ -1,101 +1,83 @@
 #include <iostream>
 
-// --------------------- declare interface --------------------
-
-class FactoryInterface
-{
+// Abstract Product
+class Product {
 public:
-	virtual void factory_function1() = 0;
-	virtual void factory_function2() = 0;
-
-	virtual ~FactoryInterface() {}
+    virtual void create() = 0;
 };
 
-//-------------------- implement interface ------------------------
-
-class FactoryImplementation1 : public FactoryInterface
-{
+// Concrete Product A
+class ConcreteProductA : public Product {
 public:
-	FactoryImplementation1(){
-		std::cout << "Constructing FactoryImplementation1..." << std::endl;
-	}
-
-    void factory_function1() {
-		std::cout << "From FactoryImplementation1::factory_function1()" << std::endl;
-	}
-
-    void factory_function2() {
-		std::cout << "From FactoryImplementation1::factory_function2()" << std::endl;
-	}
-
-	~FactoryImplementation1(){
-		std::cout << "Destructing FactoryImplementation1..." << std::endl;
-	}
+    void create() override {
+        std::cout << "Creating Product A" << std::endl;
+    }
 };
 
-class FactoryImplementation2 : public FactoryInterface
-{
+// Concrete Product B
+class ConcreteProductB : public Product {
 public:
-	FactoryImplementation2(){
-		std::cout << "Constructing FactoryImplementation2..." << std::endl;
-	}
-
-    void factory_function1() {
-		std::cout << "From FactoryImplementation2::factory_function1()" << std::endl;
-	}
-
-    void factory_function2() {
-		std::cout << "From FactoryImplementation2::factory_function2()" << std::endl;
-	}
-
-	~FactoryImplementation2(){
-		std::cout << "Destructing FactoryImplementation2..." << std::endl;
-	}
+    void create() override {
+        std::cout << "Creating Product B" << std::endl;
+    }
 };
 
-// ---------------------- get specific object ----------------------
-
-enum FactoryType
-{
-	FactoryType1,
-	FactoryType2
-};
-
-
-class FactoryProvider{
+// Abstract Factory
+class Factory {
 public:
-	static FactoryInterface* getFactoryObject(FactoryType factoryType)
-	{
-		switch (factoryType)
-		{
-		case FactoryType1:
-			return new FactoryImplementation1();
-
-		case FactoryType2:
-			return new FactoryImplementation2();
-
-		default:
-			return nullptr;
-		}
-	}
+    virtual Product* createProduct() = 0;
 };
 
+// Concrete Factory for Product A
+class FactoryA : public Factory {
+public:
+    Product* createProduct() override {
+        return new ConcreteProductA();
+    }
+};
 
-// ----------------- test factory pattern -----------
+// Concrete Factory for Product B
+class FactoryB : public Factory {
+public:
+    Product* createProduct() override {
+        return new ConcreteProductB();
+    }
+};
 
-int main()
-{
-	FactoryInterface *factoryInterface1 = FactoryProvider::getFactoryObject(FactoryType1);
-    factoryInterface1->factory_function1();
-    factoryInterface1->factory_function2();
-	delete factoryInterface1;
+int main() {
+    Factory* factoryA = new FactoryA();
+    Product* productA = factoryA->createProduct();
+    productA->create();
 
-	std::cout << "----------------------------" << std::endl;
+    Factory* factoryB = new FactoryB();
+    Product* productB = factoryB->createProduct();
+    productB->create();
 
-	FactoryInterface *factoryInterface2 = FactoryProvider::getFactoryObject(FactoryType2);
-    factoryInterface2->factory_function1();
-    factoryInterface2->factory_function2();
-	delete factoryInterface2;
+    delete factoryA;
+    delete productA;
+    delete factoryB;
+    delete productB;
 
-	return 0;
+    return 0;
 }
+
+
+
+/*
+- The Factory Method Pattern in C++ is a creational design pattern that defines an interface
+ for creating objects but allows subclasses to alter the type of objects that will be created. 
+ It abstracts the process of object creation and provides a way to create objects without 
+ specifying their exact class. 
+- In this example: Product is an abstract class representing the interface for products. It has a 
+virtual create() method that must be implemented by concrete products.
+- ConcreteProductA and ConcreteProductB are concrete classes that inherit from Product and provide 
+specific implementations of the create() method.
+- Factory is an abstract class representing the interface for factories. It declares a pure virtual 
+function createProduct() to create products.
+- FactoryA and FactoryB are concrete factory classes that inherit from Factory. They implement of 
+the createProduct() method to create specific products.
+- In the main function, you create instances of the factories (FactoryA and FactoryB) and use them 
+to create products (ConcreteProductA and ConcreteProductB).
+- This pattern allows you to create new types of products and factories by simply adding new classes
+ that conform to the abstract interfaces, without changing the existing client code.
+*/
