@@ -1,115 +1,68 @@
 #include <iostream>
 #include <string>
 
-/* Prototype base class. */
-class Prototype
-{
+class Prototype {
+public:
+    virtual Prototype* clone() const = 0;
+
+    virtual void setInfo(const std::string& info) {
+        info_ = info;
+    }
+
+    virtual std::string getInfo() const {
+        return info_;
+    }
+
 protected:
-    std::string type;
-    int value;
+    std::string info_;
+};
 
+class ConcretePrototype : public Prototype {
 public:
-    virtual Prototype* clone() = 0;
-
-    std::string getType()
-    {
-        return type;
-    }
-
-    int getValue()
-    {
-        return value;
+    Prototype* clone() const override {
+        ConcretePrototype* newPrototype = new ConcretePrototype();
+        newPrototype->setInfo(this->getInfo());
+        return newPrototype;
     }
 };
 
-class ConcretePrototype1 : public Prototype
-{
-public:
-    ConcretePrototype1(int number)
-    {
-        type = "Type1";
-        value = number;
-    }
+int main() {
+    ConcretePrototype original;
+    original.setInfo("This is the original object.");
 
-    Prototype* clone()
-    {
-        return new ConcretePrototype1(*this);
-    }
-};
+    ConcretePrototype* cloned1 = dynamic_cast<ConcretePrototype*>(original.clone());
+    cloned1->setInfo("This is the first cloned object.");
 
-class ConcretePrototype2 : public Prototype
-{
-public:
-    ConcretePrototype2(int number)
-    {
-        type = "Type2";
-        value = number;
-    }
+    ConcretePrototype* cloned2 = dynamic_cast<ConcretePrototype*>(original.clone());
+    cloned2->setInfo("This is the second cloned object.");
 
-    Prototype* clone()
-    {
-        return new ConcretePrototype2(*this);
-    }
-};
+    std::cout << "Original: " << original.getInfo() << std::endl;
+    std::cout << "Cloned 1: " << cloned1->getInfo() << std::endl;
+    std::cout << "Cloned 2: " << cloned2->getInfo() << std::endl;
 
-/* Factory that manages prorotype instances and produces their clones. */
-class ObjectFactory
-{
-    static Prototype* type1value1;
-    static Prototype* type1value2;
-    static Prototype* type2value1;
-    static Prototype* type2value2;
+    delete cloned1;
+    delete cloned2;
 
-public:
-    static void  initialize()
-    {
-        type1value1 = new ConcretePrototype1(1);
-        type1value2 = new ConcretePrototype1(2);
-        type2value1 = new ConcretePrototype2(1);
-        type2value2 = new ConcretePrototype2(2);
-    }
-
-    static Prototype* getType1Value1()
-    {
-        return type1value1->clone();
-    }
-
-    static Prototype* getType1Value2()
-    {
-        return type1value2->clone();
-    }
-
-    static Prototype* getType2Value1()
-    {
-        return type2value1->clone();
-    }
-
-    static Prototype* getType2Value2()
-    {
-        return type2value2->clone();
-    }
-};
-
-Prototype* ObjectFactory::type1value1 = 0;
-Prototype* ObjectFactory::type1value2 = 0;
-Prototype* ObjectFactory::type2value1 = 0;
-Prototype* ObjectFactory::type2value2 = 0;
-
-void prototype_pattern()
-{
-    ObjectFactory::initialize();
-    Prototype* object;
-
-    /* All the object were created by cloning the prototypes. */
-    object = ObjectFactory::getType1Value1();
-    std::cout << object->getType() << ": " << object->getValue() << std::endl;
-
-    object = ObjectFactory::getType1Value2();
-    std::cout << object->getType() << ": " << object->getValue() << std::endl;
-
-    object = ObjectFactory::getType2Value1();
-    std::cout << object->getType() << ": " << object->getValue() << std::endl;
-
-    object = ObjectFactory::getType2Value2();
-    std::cout << object->getType() << ": " << object->getValue() << std::endl;
+    return 0;
 }
+
+
+
+/*
+- The Prototype Pattern is a creational design pattern that allows you to create new objects by copying an existing object, known as the prototype. 
+This pattern is useful when you want to create new objects with the same initial state as an existing object, saving the cost of initializing the new object from scratch.
+
+- In this example: Prototype is the base class for the prototype objects. It defines a clone method, which will be implemented by concrete prototypes. 
+The setInfo and getInfo methods allow you to set and retrieve the object's information.
+
+- ConcretePrototype is a concrete class that inherits from Prototype. It implements the clone method, making a deep copy of the object, and also allows 
+setting and getting the object's information.
+
+- In the main function, we create an original object and then create two clones from it. Each clone is created by calling the clone method on the 
+original object. We then modify the information for each object to demonstrate that they are distinct.
+
+- After using the cloned objects, remember to delete them to free the allocated memory.
+
+- The Prototype Pattern is useful when you want to create new objects that are similar to existing ones. It allows you to create objects with the same 
+initial state without the need to reinitialize them.
+*/
