@@ -1,167 +1,140 @@
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
+#include <string>
 
-
-enum PersistenceType
-{
-    File, Queue, Pathway
-};
-
-struct PersistenceAttribute
-{
-    PersistenceType type;
-    char value[30];
-};
-
-class DistrWorkPackage
-{
-public:
-    DistrWorkPackage(char *type)
-    {
-        sprintf(_desc, "Distributed Work Package for: %s", type);
-    }
-    void setFile(char *f, char *v)
-    {
-        sprintf(_temp, "\n  File(%s): %s", f, v);
-        strcat(_desc, _temp);
-    }
-    void setQueue(char *q, char *v)
-    {
-        sprintf(_temp, "\n  Queue(%s): %s", q, v);
-        strcat(_desc, _temp);
-    }
-    void setPathway(char *p, char *v)
-    {
-        sprintf(_temp, "\n  Pathway(%s): %s", p, v);
-        strcat(_desc, _temp);
-    }
-    const char *getState()
-    {
-        return _desc;
-    }
+// Product
+class Computer {
 private:
-    char _desc[200], _temp[80];
-};
+    std::string cpu_;
+    int ram_ = 0;
+    std::string storage_;
 
-class Builder
-{
 public:
-    virtual void configureFile(char*) = 0;
-    virtual void configureQueue(char*) = 0;
-    virtual void configurePathway(char*) = 0;
-    DistrWorkPackage *getResult()
-    {
-        return _result;
+    void setCPU(const std::string& cpu) {
+        cpu_ = cpu;
     }
-protected:
-    DistrWorkPackage *_result;
-};
 
-class UnixBuilder : public Builder
-{
-public:
-    UnixBuilder()
-    {
-        _result = new DistrWorkPackage("Unix");
+    void setRAM(int ram) {
+        ram_ = ram;
     }
-    void configureFile(char *name)
-    {
-        _result->setFile("flatFile", name);
+
+    void setStorage(const std::string& storage) {
+        storage_ = storage;
     }
-    void configureQueue(char *queue)
-    {
-        _result->setQueue("FIFO", queue);
-    }
-    void configurePathway(char *type)
-    {
-        _result->setPathway("thread", type);
+
+    void showSpecs() {
+        std::cout << "CPU: " << cpu_ << ", RAM: " << ram_ << "GB, Storage: " << storage_ << std::endl;
     }
 };
 
-class VmsBuilder : public Builder
-{
+// Abstract Builder
+class ComputerBuilder {
 public:
-    VmsBuilder()
-    {
-        _result = new DistrWorkPackage("Vms");
-    }
-    void configureFile(char *name)
-    {
-        _result->setFile("ISAM", name);
-    }
-    void configureQueue(char *queue)
-    {
-        _result->setQueue("priority", queue);
-    }
-    void configurePathway(char *type)
-    {
-        _result->setPathway("LWP", type);
-    }
+    virtual void buildCPU() = 0;
+    virtual void buildRAM() = 0;
+    virtual void buildStorage() = 0;
+    virtual Computer getResult() = 0;
 };
 
-class Reader
-{
+// Concrete Builder for Gaming Computer
+class GamingComputerBuilder : public ComputerBuilder {
 public:
-    void setBuilder(Builder *b)
-    {
-        _builder = b;
+    void buildCPU() override {
+        computer_.setCPU("Intel Core i9");
     }
-    void construct(PersistenceAttribute[], int);
+
+    void buildRAM() override {
+        computer_.setRAM(32);
+    }
+
+    void buildStorage() override {
+        computer_.setStorage("2TB SSD");
+    }
+
+    Computer getResult() override {
+        return computer_;
+    }
+
 private:
-    Builder *_builder;
+    Computer computer_;
 };
 
-void Reader::construct(PersistenceAttribute list[], int num)
-{
-    for (int i = 0; i < num; i++)
-        if (list[i].type == File)
-            _builder->configureFile(list[i].value);
-        else if (list[i].type == Queue)
-            _builder->configureQueue(list[i].value);
-        else if (list[i].type == Pathway)
-            _builder->configurePathway(list[i].value);
+// Concrete Builder for Office Computer
+class OfficeComputerBuilder : public ComputerBuilder {
+public:
+    void buildCPU() override {
+        computer_.setCPU("Intel Core i7");
+    }
+
+    void buildRAM() override {
+        computer_.setRAM(16);
+    }
+
+    void buildStorage() override {
+        computer_.setStorage("1TB HDD");
+    }
+
+    Computer getResult() override {
+        return computer_;
+    }
+
+private:
+    Computer computer_;
+};
+
+// Director
+class ComputerDirector {
+public:
+    void setBuilder(ComputerBuilder* builder) {
+        builder_ = builder;
+    }
+
+    Computer construct() {
+        builder_->buildCPU();
+        builder_->buildRAM();
+        builder_->buildStorage();
+        return builder_->getResult();
+    }
+
+private:
+    ComputerBuilder* builder_;
+};
+
+int main() {
+    GamingComputerBuilder gamingBuilder;
+    OfficeComputerBuilder officeBuilder;
+    ComputerDirector director;
+
+    director.setBuilder(&gamingBuilder);
+    Computer gamingComputer = director.construct();
+    std::cout << "Gaming Computer Specs:" << std::endl;
+    gamingComputer.showSpecs();
+
+    director.setBuilder(&officeBuilder);
+    Computer officeComputer = director.construct();
+    std::cout << "Office Computer Specs:" << std::endl;
+    officeComputer.showSpecs();
+
+    return 0;
 }
 
-const int NUM_ENTRIES = 6;
-PersistenceAttribute input[NUM_ENTRIES] =
-{
-    {
-        File, "state.dat"
-    }
-    ,
-    {
-        File, "config.sys"
-    }
-    ,
-    {
-        Queue, "compute"
-    }
-    ,
-    {
-        Queue, "log"
-    }
-    ,
-    {
-        Pathway, "authentication"
-    }
-    ,
-    {
-        Pathway, "error processing"
-    }
-};
 
-void test_builder_pattern()
-{
-    UnixBuilder unixBuilder;
-    VmsBuilder vmsBuilder;
-    Reader reader;
 
-    reader.setBuilder(&unixBuilder);
-    reader.construct(input, NUM_ENTRIES);
-    std::cout << unixBuilder.getResult()->getState() << std::endl;
 
-    reader.setBuilder(&vmsBuilder);
-    reader.construct(input, NUM_ENTRIES);
-    std::cout << vmsBuilder.getResult()->getState() << std::endl;
-}
+/*
+- The Builder Pattern is a creational design pattern that allows you to construct complex objects step by step. It separates the construction 
+of a complex object from its representation, allowing you to create different representations of an object by using the same construction process. 
+This pattern is useful when you need to create objects with many optional components or configurations.
+
+- In this example: Computer is the product class that you want to build.
+
+- ComputerBuilder is an abstract builder class with methods for building various components of the Computer.
+
+- GamingComputerBuilder and OfficeComputerBuilder are concrete builder classes that inherit from ComputerBuilder. They implement 
+the methods to build components with specific configurations for gaming and office computers.
+
+- ComputerDirector is responsible for directing the construction process using a specific builder.
+
+- In the main function, we create instances of the GamingComputerBuilder and OfficeComputerBuilder, and then use the ComputerDirector 
+to construct gaming and office computers with different configurations. The builder pattern allows you to create complex objects while keeping 
+the construction process and product separate, making it easy to create different variants of a product.
+*/
