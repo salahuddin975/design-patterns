@@ -42,18 +42,23 @@ if __name__ == "__main__":
     client_code(factory_b)
 
 
+
 '''
-In this Python example:
+Output:
 
-- Product is an abstract base class (ABC) representing the interface for products. It has an abstract method create() that 
+Creating Product A
+Creating Product B
+'''
+
+'''
+- The Factory Method Pattern is a creational design pattern that defines an interface for creating an object but allows subclasses to 
+alter the type of objects that will be created. In Python, you can implement the Factory Method Pattern using classes and methods. 
+
+- In this Python example: Product is an abstract base class (ABC) representing the interface for products. It has an abstract method create() that 
 must be implemented by concrete products.
-
 - ConcreteProductA and ConcreteProductB are concrete classes that inherit from Product and provide specific implementations of the create() method.
-
 - Factory is an abstract base class (ABC) representing the interface for factories. It declares an abstract method create_product() to create products.
-
 - FactoryA and FactoryB are concrete factory classes that inherit from Factory. They implement the create_product() method to create specific products.
-
 - The client_code function demonstrates how to create and use products via the factory. You pass a factory object as an argument, and 
 it creates a product and calls its create() method.
 

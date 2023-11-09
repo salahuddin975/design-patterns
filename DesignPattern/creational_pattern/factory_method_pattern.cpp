@@ -62,22 +62,24 @@ int main() {
 }
 
 
+/*
+Output:
+
+Creating Product A
+Creating Product B
+*/
 
 /*
-- The Factory Method Pattern in C++ is a creational design pattern that defines an interface
- for creating objects but allows subclasses to alter the type of objects that will be created. 
- It abstracts the process of object creation and provides a way to create objects without 
- specifying their exact class. 
-- In this example: Product is an abstract class representing the interface for products. It has a 
-virtual create() method that must be implemented by concrete products.
-- ConcreteProductA and ConcreteProductB are concrete classes that inherit from Product and provide 
-specific implementations of the create() method.
-- Factory is an abstract class representing the interface for factories. It declares a pure virtual 
-function createProduct() to create products.
-- FactoryA and FactoryB are concrete factory classes that inherit from Factory. They implement of 
-the createProduct() method to create specific products.
-- In the main function, you create instances of the factories (FactoryA and FactoryB) and use them 
-to create products (ConcreteProductA and ConcreteProductB).
-- This pattern allows you to create new types of products and factories by simply adding new classes
- that conform to the abstract interfaces, without changing the existing client code.
+- The Factory Method Pattern in C++ is a creational design pattern that defines an interface for creating objects but allows subclasses to alter 
+the type of objects that will be created. It abstracts the process of object creation and provides a way to create objects without  specifying their exact class. 
+
+- In this example: Product is an abstract class representing the interface for products. It has a virtual create() method that must be implemented by concrete products.
+- ConcreteProductA and ConcreteProductB are concrete classes that inherit from Product and provide specific implementations of the create() method.
+- Factory is an abstract class representing the interface for factories. It declares a pure virtual function createProduct() to create products.
+- FactoryA and FactoryB are concrete factory classes that inherit from Factory. They implement of the createProduct() method to create specific products.
+
+- In the main function, you create instances of the factories (FactoryA and FactoryB) and use them to create products (ConcreteProductA and ConcreteProductB).
+
+- This pattern allows you to create new types of products and factories by simply adding new classes that conform to the abstract interfaces, without 
+changing the existing client code.
 */

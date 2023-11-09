@@ -56,15 +56,23 @@ if __name__ == "__main__":
     print(office_computer)
 
 
+
+'''
+Output:
+
+Gaming Computer Specs:
+CPU: Intel Core i9, RAM: 32GB, Storage: 2TB SSD
+Office Computer Specs:
+CPU: Intel Core i7, RAM: 16GB, Storage: 1TB HDD
+'''
+
 '''
 - The Builder Pattern in Python is a creational design pattern that allows you to construct complex objects step by step. It separates 
 the construction of a complex object from its representation, enabling the creation of different representations of an object by using 
 the same construction process. This pattern is useful when you need to create objects with many optional components or configurations.
 
 - In this example: Computer is the product class that you want to build.
-
 - ComputerBuilder is the builder class with methods for setting different components of the computer. Each method returns self, allowing for method chaining.
-
 - The ComputerDirector is responsible for directing the construction process using specific builder methods to build gaming and office computers.
 
 - In the main section, we create an instance of the ComputerDirector and use it to construct gaming and office computers with different configurations. 

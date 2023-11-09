@@ -99,6 +99,15 @@ int main() {
 }
 
 
+/*
+Output:
+
+Using Product A1
+Consuming Product B1
+Using Product A2
+Consuming Product B2
+*/
+
 
 /*
 - The Abstract Factory Pattern in C++ is a creational design pattern that provides an interface for creating families of related or 
@@ -107,11 +116,8 @@ compatible with each other and when you want to hide the details of object creat
 
 - In this example: AbstractProductA and AbstractProductB are abstract classes representing the interface for product families. 
 Concrete products are derived from these abstract classes.
-
 - ConcreteProductA1, ConcreteProductB1, ConcreteProductA2, and ConcreteProductB2 are concrete product classes for two different product families.
-
 - AbstractFactory is an abstract class defining the interface for creating products. It declares abstract methods for creating AbstractProductA and AbstractProductB.
-
 - ConcreteFactory1 and ConcreteFactory2 are concrete factory classes for two different product families. They implement the AbstractFactory 
 interface to create products from their respective families.
 

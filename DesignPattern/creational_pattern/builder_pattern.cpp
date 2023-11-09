@@ -118,7 +118,14 @@ int main() {
 }
 
 
+/*
+Output:
 
+Gaming Computer Specs:
+CPU: Intel Core i9, RAM: 32GB, Storage: 2TB SSD
+Office Computer Specs:
+CPU: Intel Core i7, RAM: 16GB, Storage: 1TB HDD
+*/
 
 /*
 - The Builder Pattern is a creational design pattern that allows you to construct complex objects step by step. It separates the construction 
@@ -126,12 +133,9 @@ of a complex object from its representation, allowing you to create different re
 This pattern is useful when you need to create objects with many optional components or configurations.
 
 - In this example: Computer is the product class that you want to build.
-
 - ComputerBuilder is an abstract builder class with methods for building various components of the Computer.
-
 - GamingComputerBuilder and OfficeComputerBuilder are concrete builder classes that inherit from ComputerBuilder. They implement 
 the methods to build components with specific configurations for gaming and office computers.
-
 - ComputerDirector is responsible for directing the construction process using a specific builder.
 
 - In the main function, we create instances of the GamingComputerBuilder and OfficeComputerBuilder, and then use the ComputerDirector 

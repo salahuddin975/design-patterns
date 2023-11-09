@@ -74,16 +74,22 @@ if __name__ == "__main__":
 
 
 '''
+Output:
+
+Product A1 operation
+Product B1 operation
+Product A2 operation
+Product B2 operation
+'''
+
+'''
 - The Abstract Factory Pattern in Python is a creational design pattern that provides an interface for creating families of related or dependent 
 objects without specifying their concrete classes. It allows you to create instances of multiple classes that belong to the same family of objects.
 
 - In this example: AbstractProductA and AbstractProductB are abstract classes representing the interface for product families. 
 Concrete products are derived from these abstract classes.
-
 - ConcreteProductA1, ConcreteProductA2, ConcreteProductB1, and ConcreteProductB2 are concrete product classes for two different product families.
-
 - AbstractFactory is an abstract class defining the interface for creating products. It declares abstract methods for creating AbstractProductA and AbstractProductB.
-
 - ConcreteFactory1 and ConcreteFactory2 are concrete factory classes for two different product families. They implement the AbstractFactory 
 interface to create products from their respective families.
 
