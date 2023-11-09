@@ -8,3 +8,5 @@ DesignPattern/other_patterns/mvc_pattern
 DesignPattern/structural_patterns/adapter_pattern
 .vscode/launch.json
 .vscode/tasks.json
+DesignPattern/structural_patterns/decorator_pattern
+DesignPattern/structural_patterns/proxy_pattern
