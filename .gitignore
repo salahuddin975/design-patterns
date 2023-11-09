@@ -1,0 +1,10 @@
+DesignPattern/creational_pattern/abstract_factory_pattern
+DesignPattern/creational_pattern/builder_pattern
+DesignPattern/creational_pattern/factory_method_pattern
+DesignPattern/creational_pattern/factory_pattern
+DesignPattern/creational_pattern/prototype_pattern
+DesignPattern/creational_pattern/singleton
+DesignPattern/other_patterns/mvc_pattern
+DesignPattern/structural_patterns/adapter_pattern
+.vscode/launch.json
+.vscode/tasks.json
