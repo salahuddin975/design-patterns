@@ -5,7 +5,7 @@ class LegacyComponent:
 
 # New interface that the client code expects
 class NewInterface:
-    def new_operation(self):
+    def new_operation(self):      # can be declared as @abstractmethod
         pass
 
 # Adapter that adapts the existing class to the new interface
