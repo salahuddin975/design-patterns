@@ -62,15 +62,29 @@ int main() {
 
 
 /*
+Output:
+
+Message: Data added successfully.
+Message: Data added successfully.
+Message: Data added successfully.
+Data in the Model:
+Item 1
+Item 2
+Item 3
+*/
+
+
+/*
+- The Model-View-Controller (MVC) pattern is a design pattern that separates an application into three interconnected components: Model, View, and Controller. 
+It's used to structure the code of an application to ensure the separation of concerns, making the code more modular and maintainable. 
+
 - Implementing the Model-View-Controller (MVC) pattern in C++ helps in separating the concerns of an application by dividing it into three 
 interconnected components: the Model, View, and Controller. Below is a simple example of the MVC pattern in C++. In this example, we'll 
 create a basic text-based console application.
 
 - In this example: Model: The Model class represents the application's data and business logic. It provides methods to modify and access the data. 
 In this case, it stores a vector of strings.
-
 - View: The View class is responsible for displaying the data to the user. It provides methods for rendering data and messages to the console.
-
 - Controller: The Controller class acts as an intermediary between the Model and the View. It receives user input, interacts with the Model to 
 update data, and instructs the View to display information.
 

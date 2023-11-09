@@ -45,12 +45,21 @@ if __name__ == "__main__":
 
 
 '''
+Output:
+
+Message: Data added successfully.
+Message: Data added successfully.
+Message: Data added successfully.
+Data in the Model:
+Item 1
+Item 2
+Item 3
+'''
+
+'''
 - In this Python example, we follow the same principles as in the C++ example:
-
 - Model: The Model class represents the application's data and business logic. It provides methods to modify and access the data, which in this case is a simple list.
-
 - View: The View class is responsible for displaying data to the user. It provides methods for rendering data and messages to the console.
-
 - Controller: The Controller class acts as an intermediary between the Model and the View. It receives user input, interacts with the Model to 
 update data, and instructs the View to display information.
 
