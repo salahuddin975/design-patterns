@@ -10,3 +10,4 @@ DesignPattern/structural_patterns/adapter_pattern
 .vscode/tasks.json
 DesignPattern/structural_patterns/decorator_pattern
 DesignPattern/structural_patterns/proxy_pattern
+DesignPattern/structural_patterns/composite_pattern
