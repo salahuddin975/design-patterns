@@ -66,7 +66,6 @@ Concrete Implementor A operation
 Concrete Implementor B operation
 */
 
-
 /*
 - The Bridge Pattern is a structural design pattern that separates an object's abstraction from its implementation so that the two can vary independently. 
 It's particularly useful when you want to avoid a permanent binding between an abstraction and its implementation, allowing them to change and evolve separately. 

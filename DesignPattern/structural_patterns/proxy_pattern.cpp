@@ -45,6 +45,7 @@ int main() {
     return 0;
 }
 
+
 /*
 Output: 
 
@@ -57,9 +58,7 @@ It can be used for various purposes, such as controlling access, logging, or laz
 to provide a controlled interface to an object. 
 
 - In this example: Subject is the interface that defines the common operation, which is request.
-
 - RealSubject is the concrete implementation of the subject interface. It represents the real object that the proxy will control access to.
-
 - Proxy is the proxy class. It also implements the Subject interface. The proxy, in this case, lazily instantiates the RealSubject when the request method is called.
 
 - In the main function, we create an instance of the Proxy class and call its request method. The proxy, in turn, creates and delegates the request to the RealSubject.

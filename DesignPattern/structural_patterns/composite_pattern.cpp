@@ -60,13 +60,9 @@ In this pattern, individual objects and compositions of objects are treated unif
 that form a hierarchical structure. 
 
 - In this example: Component is the base interface that defines the common operation, which is operation.
-
 - Leaf is a leaf class that represents individual objects.
-
 - Composite is a composite class that can contain other components, including both leaves and other composites. It can have one or more children.
-
 - The add method in the Composite class allows adding child components.
-
 - The operation method of the Composite class iterates through its children and invokes their operation methods. The Composite can represent a tree 
 structure where each node can be either a Leaf or another Composite.
 

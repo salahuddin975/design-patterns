@@ -49,17 +49,24 @@ if __name__ == "__main__":
 
 
 
+'''
+Output:
+
+ConcreteComponent operation
+ConcreteComponent operation
+Additional behavior added by ConcreteDecoratorA
+ConcreteComponent operation
+Additional behavior added by ConcreteDecoratorA
+Additional behavior added by ConcreteDecoratorB
+'''
 
 '''
 - The Decorator Pattern is a structural design pattern in which you can add behavior to objects dynamically without altering their class structure. 
 In Python, it's relatively straightforward to implement the Decorator Pattern due to the language's dynamic and flexible nature. 
 
 - In this Python example: Component is the base interface that defines the common operation.
-
 - ConcreteComponent is the concrete implementation of the base component.
-
 - Decorator is the base decorator class that also implements the Component interface. It contains a reference to the wrapped Component.
-
 - ConcreteDecoratorA and ConcreteDecoratorB are the concrete decorator classes that add additional behavior to the component. They override the 
 operation method and call the wrapped component's operation method while adding their specific behavior.
 

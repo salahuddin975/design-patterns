@@ -19,9 +19,7 @@ class Adapter(NewInterface):
 def main():
     legacy_component = LegacyComponent()
     adapter = Adapter(legacy_component)
-
-    # The client code can work with the new interface
-    adapter.new_operation()
+    adapter.new_operation()    # The client code can work with the new interface
 
 if __name__ == "__main__":
     main()
@@ -29,13 +27,17 @@ if __name__ == "__main__":
 
 
 '''
+Output: 
+
+LegacyComponent is performing its legacy operation.s
+'''
+
+'''
 - The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to work together. It involves creating 
 a wrapper (the adapter) that converts one interface into another. In Python, you can implement the Adapter Pattern easily due to the language's flexibility. 
 
 - In this Python example: LegacyComponent is an existing class with an incompatible interface, and it has a method legacy_operation.
-
 - NewInterface is the new interface that the client code expects, and it has a method new_operation.
-
 - Adapter is the adapter class that inherits from the NewInterface. It contains an instance of LegacyComponent and adapts it to work with the NewInterface.
 
 - In the main function, we create an instance of LegacyComponent, then create an instance of the Adapter and pass the LegacyComponent instance to it. 

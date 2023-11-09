@@ -62,5 +62,4 @@ We call the operation method on each refined abstraction, which in turn calls th
 
 - The Bridge Pattern in Python allows you to separate the abstraction from its implementation, enabling them to vary independently and providing 
 flexibility for future changes.
-
 '''

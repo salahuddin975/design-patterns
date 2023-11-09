@@ -77,6 +77,16 @@ int main() {
 }
 
 
+/*
+Output:
+
+ConcreteComponent operation
+ConcreteComponent operation
+Additional behavior added by ConcreteDecoratorA
+ConcreteComponent operation
+Additional behavior added by ConcreteDecoratorA
+Additional behavior added by ConcreteDecoratorB
+*/
 
 /*
 - The Decorator Pattern is a structural design pattern that allows you to add behavior to individual objects, either statically or dynamically, 
@@ -84,11 +94,8 @@ without affecting the behavior of other objects from the same class. In C++, you
 decorator classes that wrap the base class and add or modify its behavior.
 
 - In this example: Component is the base interface that defines the common operation.
-
 - ConcreteComponent is the concrete implementation of the base component.
-
 - Decorator is the base decorator class that also implements the Component interface. It contains a pointer to the wrapped Component.
-
 - ConcreteDecoratorA and ConcreteDecoratorB are the concrete decorator classes that add additional behavior to the component. They override the 
 operation method and call the wrapped component's operation method while adding their specific behavior.
 

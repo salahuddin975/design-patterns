@@ -28,16 +28,17 @@ public:
 
 int main() {
     NewInterface* adapter = new Adapter;
-
-    // The client code can work with the new interface
-    adapter->newOperation();
-
+    adapter->newOperation();    // The client code can work with the new interface
     delete adapter;
-
     return 0;
 }
 
 
+/*
+Output:
+
+LegacyComponent is performing its legacy operation.
+*/
 
 /*
 - The Adapter Pattern is a structural design pattern that allows objects with incompatible interfaces to work together. It involves creating 
@@ -45,9 +46,7 @@ a wrapper (the adapter) that converts one interface into another. The adapter pa
 with others without modifying their source code.
 
 - In this example: LegacyComponent is an existing class with an incompatible interface, and it has a method legacyOperation.
-
 - NewInterface is the new interface that the client code expects, and it has a method newOperation.
-
 - Adapter is the adapter class that derives from the NewInterface and contains an instance of LegacyComponent. It adapts the LegacyComponent 
 to work with the NewInterface.
 
