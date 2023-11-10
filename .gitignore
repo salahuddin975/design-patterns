@@ -14,3 +14,4 @@ DesignPattern/structural_patterns/composite_pattern
 DesignPattern/structural_patterns/bridge_pattern
 DesignPattern/behavioral_patterns/observer_pattern
 DesignPattern/behavioral_patterns/strategy_pattern
+DesignPattern/behavioral_patterns/command_pattern
